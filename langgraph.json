@@ -1,0 +1,9 @@
+{
+  "$schema": "https://langgra.ph/schema.json",
+  "dependencies": ["."],
+  "graphs": {
+    "fusion_hcm_agent": "./workflow.py:agent_workflow"
+  },
+  "env": ".env",
+  "image_distro": "wolfi"
+}

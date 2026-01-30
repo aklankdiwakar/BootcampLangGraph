@@ -1,0 +1,10 @@
+# Core LangGraph dependencies
+langgraph
+langchain
+langchain-openai
+
+# For simulating database (we'll use simple JSON files)
+# No Oracle database needed for learning!
+
+# Utilities
+python-dotenv
