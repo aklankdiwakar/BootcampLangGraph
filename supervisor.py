@@ -10,7 +10,7 @@ from langchain_openai import ChatOpenAI
 from state import AgentState
 import os
 from dotenv import load_dotenv
-from langchain_community.chat_models.oci_generative_ai import ChatOCIGenAI
+from langchain_ollama import ChatOllama
 load_dotenv()
 
 
@@ -22,20 +22,14 @@ def supervisor_agent(state: AgentState) -> AgentState:
     """
 
     print("\n🧠 SUPERVISOR: Analyzing the request...")
-
     user_message = state["messages"][0]
     print(f"   User said: '{user_message}'")
 
     # Use GPT to understand what the user wants
+
+    llm = ChatOllama(model="qwen2:1.5b")
     # llm = ChatOpenAI(model="gpt-4o-mini", temperature=0)
-    llm = ChatOCIGenAI(
-        model_id="cohere.command-r-plus-08-2024",
-        service_endpoint="https://inference.generativeai.us-chicago-1.oci.oraclecloud.com",
-        compartment_id=
-        "ocid1.compartment.oc1..aaaaaaaakggm6zsow2fefyjbtvftjdd7bxkgmvazunepkpi34o6hpzzequca",
-        model_kwargs={"temperature": 0.7, "max_tokens": 500},
-        auth_profile='omcsmig_chicago'
-    )
+
     prompt = f"""
     You are analyzing a user request for an HCM system.
 
