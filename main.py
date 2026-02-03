@@ -19,9 +19,9 @@ from state import AgentState
 def main():
     """Run the interactive demo"""
 
-    print("="*70)
+    print("=" * 70)
     print("  🤖 Simple Fusion HCM Agent - LangGraph Learning Demo")
-    print("="*70)
+    print("=" * 70)
     print("\nThis demo simulates HCM operations. Try these commands:")
     print("  • I am Aklank and my user id is aklankdiwakar")
     print("  • Assign me Admin role for HCM")
@@ -29,7 +29,7 @@ def main():
     print("  • Unlock user bob.jones")
     print("\n💡 The system will remember your information!")
     print("\nType 'quit' to exit\n")
-    print("="*70)
+    print("=" * 70)
 
     # Build the workflow once
     app = create_workflow()
@@ -62,7 +62,7 @@ def main():
 
         try:
             # Run the workflow!
-            print("\n" + "─"*70)
+            print("\n" + "─" * 70)
             final_state = app.invoke(initial_state)
 
             # 🆕 Update session memory with any new information
@@ -70,7 +70,7 @@ def main():
                 session_memory = final_state["user_memory"]
 
             # Show the result
-            print("\n" + "─"*70)
+            print("\n" + "─" * 70)
             print("\n🤖 Agent:")
             print(f"   {final_state['result']}")
 

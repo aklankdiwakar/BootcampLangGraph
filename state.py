@@ -32,6 +32,9 @@ class AgentState(TypedDict):
     # Which agent should handle this next?
     next_step: str  # "supervisor", "role_agent", "password_agent", "unlock_agent", or "end"
 
+    # 🆕 MEMORY - Remember user information across conversations
+    user_memory: dict  # Stores: {"name": "Aklank", "user_id": "aklankdiwakar", etc.}
+
 
 # Example of how state flows:
 """
